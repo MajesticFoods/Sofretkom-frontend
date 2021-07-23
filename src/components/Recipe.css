@@ -1,0 +1,10 @@
+.RecipeCard {
+    display: inline-block;
+    margin-left: 20px;
+    margin-top: 50px;
+}
+
+p.card-text{
+    height: 300px;
+    overflow: scroll;
+}
