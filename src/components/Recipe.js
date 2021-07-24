@@ -13,7 +13,8 @@ class Recipe extends Component {
     this.state = {
       recipes: [],
       userInput :'',
-      userEmail:''
+      userEmail:'',
+      recipeArray:[]
       
     };
   }
@@ -55,11 +56,18 @@ class Recipe extends Component {
     await this.setState({
       userEmail: `${user.email}`
     })
+const obj={
+   Email:this.state.userEmail,
+   item:item
+}
 
-const  Email=this.state.userEmail
    
-const AddData=await axios.post(`${process.env.REACT_APP_PORT}/AddRecipe`,item,Email)
+const AddData=await axios.post(`${process.env.REACT_APP_PORT}/AddRecipe`,obj)
 
+this.setState({
+
+  recipeArray:AddData.data
+})
 
 
   }
@@ -96,7 +104,7 @@ const AddData=await axios.post(`${process.env.REACT_APP_PORT}/AddRecipe`,item,Em
                         return <li key ={index}>{element.text}</li>;
                       })}
                     </Card.Text>
-                    <Button variant="primary" onClick={()=>this.AddFav(this.item)}>Add to favorites</Button>
+                    <Button variant="primary" onClick={()=>this.AddFav(item)}>Add to favorites</Button>
                   </Card.Body>
                 </Card>
               </>
