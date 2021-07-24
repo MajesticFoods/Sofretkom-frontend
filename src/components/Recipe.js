@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
+import { Button, Form } from 'react-bootstrap'
+
 import './Recipe.css'
 
 class Recipe extends Component {
@@ -10,45 +11,77 @@ class Recipe extends Component {
     super(props);
     this.state = {
       recipes: [],
+      userInput :'',
     };
   }
+  submitHandler = async (event) => {
+    event.preventDefault();
+    
+   
+    await this.setState({
 
-  getRecipes = async (req, res) => {
-    let url = `http://localhost:3001/recipes?searchQuery=chicken`;
+        userInput : event.target.search.value
+
+    })
+    let url = `http://localhost:3001/recipes?searchQuery=${this.state.userInput}`;
+    
     let response = await axios.get(url);
     this.setState({
       recipes: response.data,
     });
-    console.log(this.state.recipes);
-  };
+    console.log(this.state.userInput);
+
+}
+
+  // getRecipes = async (event) => {
+  //   event.preventDefault();
+  //   let url = `http://localhost:3001/recipes?searchQuery=${this.state.input}`;
+  //   let response = await axios.get(url);
+  //   this.setState({
+  //     recipes: response.data,
+  //   });
+  //   console.log(this.state.recipes);
+  // };
 
   render() {
     return (
-        <>
+      <>
+
         <div>
-          <button onClick={this.getRecipes}>Test</button>
-          </div>
-      <div>
-          {this.state.recipes.map((item) => {
+          <Form onSubmit={this.submitHandler}>
+
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+
+              <Form.Control type="text" placeholder="Search" name="search" />
+
+            </Form.Group>
+
+            <Button variant="primary" type="submit"> Submit</Button>
+          </Form>
+          {/* <Button onClick={this.getRecipes} variant="primary">Test</Button> */}
+
+        </div>
+        <div>
+          {this.state.recipes.map((item,index) => {
             return (
               <>
-        <Card className="RecipeCard" style={{ width: '22rem' }}>
-          <Card.Img variant="top" src={item.image} />
-          <Card.Body>
-            <Card.Title>{item.label}</Card.Title>
-            <Card.Text>
-            {item.ingredients.map((element) => {
-                    return <li>{element.text}</li>;
-                  })}
-            </Card.Text>
-            <Button variant="primary">Add to favorites</Button>
-          </Card.Body>
-          </Card>
-          </>
+                <Card key = {index} className="RecipeCard" style={{ width: '22rem' }}>
+                  <Card.Img variant="top" src={item.image} />
+                  <Card.Body>
+                    <Card.Title>{item.label}</Card.Title>
+                    <Card.Text>
+                      {item.ingredients.map((element,index) => {
+                        return <li key ={index}>{element.text}</li>;
+                      })}
+                    </Card.Text>
+                    <Button variant="primary">Add to favorites</Button>
+                  </Card.Body>
+                </Card>
+              </>
             );
           })}
 
-      </div>
+        </div>
       </>
     );
   }
