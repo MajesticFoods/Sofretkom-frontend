@@ -4,13 +4,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import {Navbar,Button,Form,NavDropdown,Nav,FormControl} from 'react-bootstrap/'
 import LogoutButton from "./LogoutButton";
 import LoginButton from "./LoginButton";
-
+import "./Header.css";
 class Header extends React.Component{
     render(){
       const { isAuthenticated } = this.props.auth0;
 
         return(
-<Navbar bg="light" expand="lg">
+<Navbar bg="light" expand="lg" className="navbar-brand">
   <Navbar.Brand href="#">Sofretkom</Navbar.Brand>
   <Navbar.Toggle aria-controls="navbarScroll" />
   <Navbar.Collapse id="navbarScroll">
@@ -26,12 +26,13 @@ class Header extends React.Component{
       {isAuthenticated === true?  <LogoutButton />: <LoginButton />}
 
       
-
-      
     </Nav>
    
   </Navbar.Collapse>
 </Navbar>
+
+
+
         )}
     
 
