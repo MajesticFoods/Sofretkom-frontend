@@ -3,6 +3,7 @@ import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Card from 'react-bootstrap/Card'
 import { Button, Form } from 'react-bootstrap'
+import { withAuth0 } from '@auth0/auth0-react';
 
 import './Recipe.css'
 
@@ -12,6 +13,8 @@ class Recipe extends Component {
     this.state = {
       recipes: [],
       userInput :'',
+      userEmail:''
+      
     };
   }
   submitHandler = async (event) => {
@@ -42,6 +45,25 @@ class Recipe extends Component {
   //   });
   //   console.log(this.state.recipes);
   // };
+ 
+
+  //add Favorite function
+//http://localhost:3001/AddRecipe
+  AddFav = async (item)=>{
+    const { user } = this.props.auth0;
+
+    await this.setState({
+      userEmail: `${user.email}`
+    })
+
+const  Email=this.state.userEmail
+   
+    await axios.post(`${process.env.REACT_APP_PORT}/AddRecipe`,item,Email)
+
+
+
+  }
+  
 
   render() {
     return (
@@ -74,7 +96,7 @@ class Recipe extends Component {
                         return <li key ={index}>{element.text}</li>;
                       })}
                     </Card.Text>
-                    <Button variant="primary">Add to favorites</Button>
+                    <Button variant="primary" onClick={()=>this.AddFav(this.item)}>Add to favorites</Button>
                   </Card.Body>
                 </Card>
               </>
@@ -87,4 +109,4 @@ class Recipe extends Component {
   }
 }
 
-export default Recipe;
+export default withAuth0(Recipe);
