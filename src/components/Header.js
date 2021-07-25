@@ -7,6 +7,8 @@ import LoginButton from "./LoginButton";
 
 class Header extends React.Component{
     render(){
+      const { isAuthenticated } = this.props.auth0;
+
         return(
 <Navbar bg="light" expand="lg">
   <Navbar.Brand href="#">Sofretkom</Navbar.Brand>
@@ -19,25 +21,15 @@ class Header extends React.Component{
     >
       <Nav.Link href="/Home">Home</Nav.Link>
       <Nav.Link href="/Recipe">Search</Nav.Link>
-      <NavDropdown title="Link" id="navbarScrollingDropdown">
-        <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-        <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
-        <NavDropdown.Divider />
-        <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item>
-      </NavDropdown>
-      <Nav.Link href="#" disabled>
-        Link
-      </Nav.Link>
+      <Nav.Link href="/GetFavData">Favorite</Nav.Link>
+      <Nav.Link href="/AboutUS">About us</Nav.Link>
+      {isAuthenticated === true?  <LogoutButton />: <LoginButton />}
+
+      
+
+      
     </Nav>
-    {/* <Form className="d-flex">
-      <FormControl
-        type="search"
-        placeholder="Search"
-        className="mr-2"
-        aria-label="Search"
-      />
-      <Button variant="outline-success">Search</Button>
-    </Form> */}
+   
   </Navbar.Collapse>
 </Navbar>
         )}
