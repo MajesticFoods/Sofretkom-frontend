@@ -1,30 +1,41 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import Card from 'react-bootstrap/Card'
 import { Button, Form } from 'react-bootstrap'
 import { withAuth0 } from '@auth0/auth0-react';
-
-
-
 import "./Recipe.css";
+import LoginModal from "./LoginModal";
 
 class Recipe extends Component {
   constructor(props) {
     super(props);
     this.state = {
       recipes: [],
-
       userInput: '',
       userEmail: '',
       mealType: '',
-      cuisineType: ''
-
+      cuisineType: '',
+showModal:false,
     };
   }
+showModalFun =()=>{
 
+  this.setState({
+    showModal:true,
+  })
+}
+handleCloseModal=()=>{
+  this.setState({
+    showModal:false,
+  })
+}
+functionShow =()=>{
+  const isAuthenticated=this.props.auth0.isAuthenticated;
+  if (isAuthenticated==true){this.AddFav()}
+  else { this.showModalFun()}
 
+}
   handleMealType = (e) => {
     this.setState({
       mealType: e.target.value
@@ -39,21 +50,16 @@ class Recipe extends Component {
 
   submitHandler = async (event) => {
     event.preventDefault();
-
-
     await this.setState({
       userInput: event.target.search.value,
     });
     let url = `http://localhost:3001/recipes?searchQuery=${this.state.userInput}&mealType=${this.state.mealType}&cuisineType=${this.state.cuisineType}`;
-
-
     let response = await axios.get(url);
     this.setState({
-      recipes: response.data,
+    recipes: response.data,
     });
     console.log(this.state.userInput);
-
-
+    // window.location.href = "http://localhost:3000/Home";
 
   };
 
@@ -74,15 +80,10 @@ class Recipe extends Component {
   //http://localhost:3001/AddRecipe
   AddFav = async (item) => {
     const { user } = this.props.auth0;
-
     await this.setState({
       userEmail: `${user.email}`
     })
     const email = this.state.userEmail
-
-
-
-
     const AddData = await axios.post(`${process.env.REACT_APP_PORT}/AddRecipe/${email}`, item)
     this.setState({
       recipes: AddData.data,
@@ -97,6 +98,7 @@ class Recipe extends Component {
   render() {
     return (
       <>
+      {/* <Home AddFav={this.AddFav}/> */}
         <div>
           <Form onSubmit={this.submitHandler}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -126,7 +128,7 @@ class Recipe extends Component {
           {/* <Button onClick={this.getRecipes} variant="primary">Test</Button> */}
         </div>
         <div>
-          {this.state.recipes.map((item, index) => {
+          {this.state.recipes.map((item, index) => { 
             return (
               <>
 
@@ -140,12 +142,13 @@ class Recipe extends Component {
                         return <li key={index}>{element.text}</li>;
                       })}
                     </Card.Text>
-                    <Button variant="primary" onClick={() => this.AddFav(item)}>Add to favorites</Button>
+                    <Button variant="primary" onClick={this.functionShow}>Add to favorites</Button>
                   </Card.Body>
                 </Card>
               </>
             );
           })}
+          <LoginModal show={this.state.showModal} handleCloseModal={this.handleCloseModal}/>
         </div>
       </>
     );
