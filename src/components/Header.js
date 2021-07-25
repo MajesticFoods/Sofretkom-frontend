@@ -18,7 +18,7 @@ class Header extends React.Component{
       navbarScroll
     >
       <Nav.Link href="/Home">Home</Nav.Link>
-      <Nav.Link href="/Recipe">Recipes</Nav.Link>
+      <Nav.Link href="/Recipe">Search</Nav.Link>
       <NavDropdown title="Link" id="navbarScrollingDropdown">
         <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
         <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
