@@ -37,7 +37,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/">
               {/* TODO: if the user is logged in, render the `BestBooks` component, if they are not, render the `Login` component */}
-              { isAuthenticated ? <FavRecipe /> : <LoginButton />
+              { isAuthenticated ? <Recipe /> : <LoginButton />
                
               }
 
