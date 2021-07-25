@@ -32,7 +32,7 @@ handleCloseModal=()=>{
 }
 functionShow =()=>{
   const isAuthenticated=this.props.auth0.isAuthenticated;
-  if (isAuthenticated==true){this.AddFav()}
+  if (isAuthenticated){this.AddFav()}
   else { this.showModalFun()}
 
 }

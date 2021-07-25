@@ -5,13 +5,14 @@ import { withAuth0 } from '@auth0/auth0-react';
 import LoginButton from "./components/LoginButton";
 import FavRecipe from "./components/FavRecipe";
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Switch,
   Route
 } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import AboutUs from "./components/AboutUs";
+
 
 
 
@@ -23,7 +24,7 @@ class App extends Component {
       <>
 
 <Header/>
-        <Router>
+        <BrowserRouter>
 
 
 
@@ -37,7 +38,7 @@ class App extends Component {
             </Route>
 
             {/* TODO: add a route with a path of '/profile' that renders a `Profile` component */}
-            <Route path="/GetFavData">
+            <Route exact path="/GetFavData">
               {
                 <FavRecipe />
               }
@@ -45,7 +46,7 @@ class App extends Component {
             <Route exact path="/Home">
               <Home/>
             </Route>
-            <Route path="/Recipe">
+            <Route exact path="/Recipe">
               <Recipe/>
 
             </Route>
@@ -54,7 +55,7 @@ class App extends Component {
 
             </Route>
           </Switch>
-        </Router>
+        </BrowserRouter>
 
 
 
