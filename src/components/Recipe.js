@@ -12,29 +12,30 @@ class Recipe extends Component {
     super(props);
     this.state = {
       recipes: [],
-      userInput :'',
-      userEmail:''
-      
+      userInput: '',
+      userEmail: '',
+
+
     };
   }
   submitHandler = async (event) => {
     event.preventDefault();
-    
-   
+
+
     await this.setState({
 
-        userInput : event.target.search.value
+      userInput: event.target.search.value
 
     })
     let url = `http://localhost:3001/recipes?searchQuery=${this.state.userInput}`;
-    
+
     let response = await axios.get(url);
     this.setState({
       recipes: response.data,
     });
     console.log(this.state.userInput);
 
-}
+  }
 
   // getRecipes = async (event) => {
   //   event.preventDefault();
@@ -45,26 +46,31 @@ class Recipe extends Component {
   //   });
   //   console.log(this.state.recipes);
   // };
- 
+
 
   //add Favorite function
-//http://localhost:3001/AddRecipe
-  AddFav = async (item)=>{
+  //http://localhost:3001/AddRecipe
+  AddFav = async (item) => {
     const { user } = this.props.auth0;
 
     await this.setState({
       userEmail: `${user.email}`
     })
-const obj={
-   Email:this.state.userEmail
-}
+    const email = this.state.userEmail
 
-   
-const AddData=await axios.post(`${process.env.REACT_APP_PORT}/AddRecipe`,item,obj)
+
+
+
+    const AddData = await axios.post(`${process.env.REACT_APP_PORT}/AddRecipe/${email}`, item)
+    this.setState({
+      recipes: AddData.data,
+
+    })
+
 
 
   }
-  
+
 
   render() {
     return (
@@ -85,19 +91,19 @@ const AddData=await axios.post(`${process.env.REACT_APP_PORT}/AddRecipe`,item,ob
 
         </div>
         <div>
-          {this.state.recipes.map((item,index) => {
+          {this.state.recipes.map((item, index) => {
             return (
               <>
-                <Card key = {index} className="RecipeCard" style={{ width: '22rem' }}>
+                <Card key={index} className="RecipeCard" style={{ width: '22rem' }}>
                   <Card.Img variant="top" src={item.image} />
                   <Card.Body>
                     <Card.Title>{item.label}</Card.Title>
                     <Card.Text>
-                      {item.ingredients.map((element,index) => {
-                        return <li key ={index}>{element.text}</li>;
+                      {item.ingredients.map((element, index) => {
+                        return <li key={index}>{element.text}</li>;
                       })}
                     </Card.Text>
-                    <Button variant="primary" onClick={()=>this.AddFav(this.item)}>Add to favorites</Button>
+                    <Button variant="primary" onClick={() => this.AddFav(item)}>Add to favorites</Button>
                   </Card.Body>
                 </Card>
               </>
