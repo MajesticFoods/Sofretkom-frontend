@@ -39,21 +39,16 @@ class Recipe extends Component {
 
   submitHandler = async (event) => {
     event.preventDefault();
-
-
     await this.setState({
       userInput: event.target.search.value,
     });
     let url = `http://localhost:3001/recipes?searchQuery=${this.state.userInput}&mealType=${this.state.mealType}&cuisineType=${this.state.cuisineType}`;
-
-
     let response = await axios.get(url);
     this.setState({
-      recipes: response.data,
+    recipes: response.data,
     });
     console.log(this.state.userInput);
-
-
+    // window.location.href = "http://localhost:3000/Home";
 
   };
 
