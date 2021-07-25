@@ -58,7 +58,7 @@ class Recipe extends Component {
 
 const  Email=this.state.userEmail
    
-    await axios.post(`${process.env.REACT_APP_PORT}/AddRecipe`,item,Email)
+const AddData=await axios.post(`${process.env.REACT_APP_PORT}/AddRecipe`,item,Email)
 
 
 
