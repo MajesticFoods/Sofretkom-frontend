@@ -55,11 +55,12 @@ class Recipe extends Component {
     await this.setState({
       userEmail: `${user.email}`
     })
+const obj={
+   Email:this.state.userEmail
+}
 
-const  Email=this.state.userEmail
    
-const AddData=await axios.post(`${process.env.REACT_APP_PORT}/AddRecipe`,item,Email)
-
+const AddData=await axios.post(`${process.env.REACT_APP_PORT}/AddRecipe`,item,obj)
 
 
   }
