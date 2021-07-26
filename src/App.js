@@ -1,75 +1,87 @@
-import React, { Component } from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Recipe from "./components/Recipe";
+import React from 'react';
+import axios from 'axios';
+import Header from './components/Header'
+
+import LoginButton from'./components/LoginButton.js'
+
 import { withAuth0 } from '@auth0/auth0-react';
-import LoginButton from "./components/LoginButton";
-import FavRecipe from "./components/FavRecipe";
+import Profile from './components/Profile'
+import Home from"./components/Home";
+import Recipe from './components/Recipe';
+import FavRecipe from './components/FavRecipe';
+
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
-import Header from "./components/Header";
-import Home from "./components/Home";
-import AboutUs from "./components/AboutUs";
+
+class App extends React.Component {
+
+//   constructor(props){
+//     super(props)
+//     this.state={
+//       bookarray:[],
+//       userEmail: ''
+//     }
+//   }
+  
+//   componentDidMount  = async()=>{
+
+//     // const { user } = this.props.auth0;
+
+//     // await this.setState({
+//     //   userEmail: user.name
+//     // })
 
 
 
-class App extends Component {
+
+//      let url=`http:${process.env.REACT_APP_PORT}/book?ownerName=emkhareez19@gmail.com`
+//      let result = await axios.get(url)
+//      await this.setState({
+//       bookarray:result.data
+     
+//      })
+//      console.log('eam')
+// console.log(this.state.bookarray)
+
+//   }  
+
   render() {
-
-    const { user, isAuthenticated } = this.props.auth0;
-    return (
+    const { user ,isAuthenticated} = this.props.auth0;
+    // console.log('app', this.props);
+    return(
       <>
-
-<Header/>
         <Router>
+          {/* <IsLoadingAndError> */}
+            <Header />
+            
+            <Switch>
+              <Route exact path="/">
+                {/* TODO: if the user is logged in, render the `BestBooks` component, if they are not, render the `Login` component */}
+                
+                <Home/>
+                
 
-
-
-          <Switch>
-            <Route exact path="/">
-              {/* TODO: if the user is logged in, render the `BestBooks` component, if they are not, render the `Login` component */}
-              {/* {isAuthenticated ? <Header /> : <LoginButton />} */}
-<Home/>
+              </Route>
               
-
-            </Route>
-
-            {/* TODO: add a route with a path of '/profile' that renders a `Profile` component */}
-            <Route path="/GetFavData">
-              {
-                <FavRecipe />
-              }
-            </Route>
-            <Route exact path="/Home">
-              <Home/>
-            </Route>
-            <Route path="/Recipe">
-              <Recipe/>
-
-            </Route>
-            <Route exact path='/AboutUs'>
-              <AboutUs/>
-
-            </Route>
-          </Switch>
+              {/* TODO: add a route with a path of '/profile' that renders a `Profile` component */}
+              <Route path="/profile">
+                <Profile/>
+              </Route>
+              <Route path="/recipe">
+                <Recipe/>
+                </Route>
+                <Route path="/recipefav">
+                <FavRecipe/>
+                </Route>
+            </Switch>
+         
+          {/* </IsLoadingAndError> */}
         </Router>
-
-
-
-
-
-
-
-
-
-
-
-        {/* 
-    <LoginButton/>
-        <Recipe />
-        <FavRecipe/> */}
+       
+     
       </>
     );
   }
