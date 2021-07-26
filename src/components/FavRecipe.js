@@ -27,9 +27,11 @@ import Card from 'react-bootstrap/Card'
            const FavData= await axios.get(`${process.env.REACT_APP_PORT}/GetFavData/${email}`)
            this.setState({
             favDataArray:FavData.data,
+
             ShowFavData:true
            }) 
 
+           console.log(this.state.favDataArray)
        }
 
     render() {

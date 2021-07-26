@@ -30,9 +30,9 @@ handleCloseModal=()=>{
     showModal:false,
   })
 }
-functionShow =()=>{
+functionShow =(item)=>{
   const isAuthenticated=this.props.auth0.isAuthenticated;
-  if (isAuthenticated==true){this.AddFav()}
+  if (isAuthenticated==true){this.AddFav(item)}
   else { this.showModalFun()}
 
 }
@@ -142,7 +142,7 @@ functionShow =()=>{
                         return <li key={index}>{element.text}</li>;
                       })}
                     </Card.Text>
-                    <Button variant="primary" onClick={this.functionShow}>Add to favorites</Button>
+                    <Button variant="primary" onClick={()=>this.functionShow(item)}>Add to favorites</Button>
                   </Card.Body>
                 </Card>
               </>

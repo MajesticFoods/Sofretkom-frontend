@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import "bootstrap/dist/css/bootstrap.min.css";
-import Card from 'react-bootstrap/Card'
+import Card from 'react-bootstrap/Card';
+import { withAuth0 } from '@auth0/auth0-react';
 export class FavSingleRecipe extends Component {
     render() {
         return (
@@ -23,5 +24,5 @@ export class FavSingleRecipe extends Component {
     }
 }
 
-export default FavSingleRecipe
+export default withAuth0 (FavSingleRecipe)
 
