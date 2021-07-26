@@ -8,11 +8,13 @@ import { Button, Form , Card} from 'react-bootstrap'
 import { withAuth0 } from '@auth0/auth0-react';
 import FavRecipe from "./FavRecipe";
 import LoginModal from "./LoginModal";
+import imgBacGround from'./Images/imgBackGround.gif'
+import "./Home.css"
 class Home extends Component {
     render(){
         return(
             <div>
-                
+           <img src="https://i.pinimg.com/originals/7f/d4/42/7fd442a6e7b8c20e5cea197f7c37a832.gif"className="imgBody"></img>  
             </div>
         )
     }
