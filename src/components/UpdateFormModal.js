@@ -10,15 +10,16 @@ export class UpdateFormModal extends Component {
             </Modal.Header>
             <Modal.Body>
              
-              <Form
-              onSubmit={this.props.updateRecipeFun}
+              <Form onSubmit={this.props.updateRecipeFun}
               >
-            <Form.Control size="lg" type="text" name='updateLabel' defaultValue={this.props.updateTitle}/> 
+            <Form.Control size="lg" type="text" name='updateLabel' defaultValue={this.props.updateLabel}/> 
             {/* {this.props.updateIngredients.map((element, index) => {
                         return <Form.Control size="lg" type="text"  name='updateIngredients' key={index} defaultValue={element.text}/> ;
                       })} */}
         
-            
+        <Button type='submit' variant="secondary">
+                Submite
+              </Button>
            
                   
       </Form>             
@@ -27,6 +28,8 @@ export class UpdateFormModal extends Component {
               <Button onClick={this.props.handleClose} variant="secondary">
                 close
               </Button>
+             
+              
             </Modal.Footer>
           </Modal>
                 
