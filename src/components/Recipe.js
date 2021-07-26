@@ -6,7 +6,7 @@ import { Button, Form } from 'react-bootstrap'
 import { withAuth0 } from '@auth0/auth0-react';
 import "./Recipe.css";
 import LoginModal from "./LoginModal";
-
+// import AnimatedButton from 'react-animated-buttons';
 class Recipe extends Component {
   constructor(props) {
     super(props);
@@ -30,9 +30,9 @@ handleCloseModal=()=>{
     showModal:false,
   })
 }
-functionShow =()=>{
+functionShow =(item)=>{
   const isAuthenticated=this.props.auth0.isAuthenticated;
-  if (isAuthenticated){this.AddFav()}
+  if (isAuthenticated==true){this.AddFav(item)}
   else { this.showModalFun()}
 
 }
@@ -119,8 +119,8 @@ functionShow =()=>{
                 <option value="italian">Italian</option>
               </Form.Select>
             </Form.Group>
-
-            <Button variant="primary" type="submit">
+            {/* <AnimatedButton color="danger"  textColor="white">Danger</AnimatedButton> */}
+            <Button variant="primary" type="submit" className="custom-btn btn-5">
               {" "}
               Submit
             </Button>
@@ -142,9 +142,13 @@ functionShow =()=>{
                         return <li key={index}>{element.text}</li>;
                       })}
                     </Card.Text>
-                    <Button variant="primary" onClick={this.functionShow}>Add to favorites</Button>
+                    <Button variant="primary" className="custom-btn btn-5" onClick={()=>this.functionShow(item)}>Add to favorites</Button>
                   </Card.Body>
                 </Card>
+
+
+
+                
               </>
             );
           })}

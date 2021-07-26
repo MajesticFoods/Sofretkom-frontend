@@ -17,7 +17,7 @@ export class LoginModal extends Component {
                         </Modal.Body>
 
                         <Modal.Footer>
-                            <Button variant="secondary" onClick={this.props.handleCloseModal}>Close</Button>
+                            <Button className="custom-btn btn-5" onClick={this.props.handleCloseModal}>Close</Button>
                             <LoginButton />
                         </Modal.Footer>
                     </Modal.Dialog>
