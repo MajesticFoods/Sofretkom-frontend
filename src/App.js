@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./components/Home";
+import AboutUs from "./components/AboutUs";
 
 
 
@@ -30,7 +31,7 @@ class App extends Component {
             <Route exact path="/">
               {/* TODO: if the user is logged in, render the `BestBooks` component, if they are not, render the `Login` component */}
               {/* {isAuthenticated ? <Header /> : <LoginButton />} */}
-<Recipe/>
+<Home/>
               
 
             </Route>
@@ -46,6 +47,10 @@ class App extends Component {
             </Route>
             <Route path="/Recipe">
               <Recipe/>
+
+            </Route>
+            <Route exact path='/AboutUs'>
+              <AboutUs/>
 
             </Route>
           </Switch>
