@@ -142,7 +142,7 @@ functionShow =(item)=>{
                         return <li key={index}>{element.text}</li>;
                       })}
                     </Card.Text>
-                    <Button variant="primary" onClick={()=>this.functionShow(item)}>Add to favorites</Button>
+                    <Button variant="primary" className="custom-btn btn-5" onClick={()=>this.functionShow(item)}>Add to favorites</Button>
                   </Card.Body>
                 </Card>
 
