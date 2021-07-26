@@ -25,7 +25,7 @@ import Card from 'react-bootstrap/Card'
           const email = this.state.userEmail
       
            const FavData= await axios.get(`${process.env.REACT_APP_PORT}/GetFavData/${email}`)
-           this.setState({
+           await this.setState({
             favDataArray:FavData.data,
 
             ShowFavData:true
@@ -33,6 +33,29 @@ import Card from 'react-bootstrap/Card'
 
            console.log(this.state.favDataArray)
        }
+
+
+
+       DeleteRecipe = async (index) => {
+
+    
+        console.log(index);
+        let id=this.state.favDataArray[index]._id
+        const { user ,isAuthenticated} = this.props.auth0;
+       let paramsobj={
+       
+        userEmail : `${user.email}`
+    
+       }
+        // let RecipeData=await axios.delete(`http://localhost:3001/DeleteRecipe/${index}`)
+        let RecipeData=await axios.delete(`http://localhost:3001/DeleteRecipe/${id}`,{params:paramsobj})
+        await this.setState({
+         favDataArray:RecipeData.data
+        })
+       
+        }
+    
+    
 
     render() {
 
@@ -47,6 +70,8 @@ import Card from 'react-bootstrap/Card'
                     <FavSingleRecipe
                     item={item}
                     idx={idx}
+                    favDataArray={this.state.favDataArray}
+                    DeleteRecipe={this.DeleteRecipe}
                     />
                 )
             })
