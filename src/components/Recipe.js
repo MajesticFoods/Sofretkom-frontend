@@ -6,7 +6,7 @@ import { Button, Form } from 'react-bootstrap'
 import { withAuth0 } from '@auth0/auth0-react';
 import "./Recipe.css";
 import LoginModal from "./LoginModal";
-
+// import AnimatedButton from 'react-animated-buttons';
 class Recipe extends Component {
   constructor(props) {
     super(props);
@@ -119,8 +119,8 @@ functionShow =(item)=>{
                 <option value="italian">Italian</option>
               </Form.Select>
             </Form.Group>
-
-            <Button variant="primary" type="submit">
+            {/* <AnimatedButton color="danger"  textColor="white">Danger</AnimatedButton> */}
+            <Button variant="primary" type="submit" className="custom-btn btn-5">
               {" "}
               Submit
             </Button>
@@ -145,6 +145,10 @@ functionShow =(item)=>{
                     <Button variant="primary" onClick={()=>this.functionShow(item)}>Add to favorites</Button>
                   </Card.Body>
                 </Card>
+
+
+
+                
               </>
             );
           })}
