@@ -14,8 +14,8 @@ class Header extends React.Component {
      
       <>
          
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand>My Favorite Books</Navbar.Brand>
+      <Navbar collapseOnSelect expand="lg" className="Navbar">
+        <Navbar.Brand>Sofretkom</Navbar.Brand>
         <Link to="/">Home</Link>
         <Link to="/profile">Profile</Link>
         <Link to="/recipe">Search</Link>
