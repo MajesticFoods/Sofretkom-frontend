@@ -106,8 +106,8 @@ class FavRecipe extends Component {
                                   return <li key={index}>{element.text}</li>;
                                 })}
                               </Card.Text>
-                              <Button onClick={()=>this.showUpdateRecipeForm(index)} >Update</Button>
-                              <Button onClick={ ()=>this.DeleteRecipe(index) }>Delete</Button>
+                              <Button className="custom-btn btn-5 logBTN" onClick={()=>this.showUpdateRecipeForm(index)} >Update</Button>
+                              <Button className="custom-btn btn-5 logBTN" onClick={ ()=>this.DeleteRecipe(index) }>Delete</Button>
 
                             </Card.Body>
                           </Card> 

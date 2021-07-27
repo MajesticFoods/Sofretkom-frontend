@@ -40,6 +40,14 @@ class Home extends Component {
 
             </div>
 
+{/* title img */}
+
+<div class="container">
+        <span class="welcome">Quick overview</span>
+        <span class="muzile">of our website</span>
+    </div>
+
+{/* three imges */}
 <div className='allimg'>
 
             <div className='line' >
