@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Header from './components/Header'
-
+import './App.css'
 import LoginButton from'./components/LoginButton.js'
 
 import { withAuth0 } from '@auth0/auth0-react';

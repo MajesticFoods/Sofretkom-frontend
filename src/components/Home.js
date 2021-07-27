@@ -8,7 +8,7 @@ import { Button, Form , Card} from 'react-bootstrap'
 import { withAuth0 } from '@auth0/auth0-react';
 import FavRecipe from "./FavRecipe";
 import LoginModal from "./LoginModal";
-import imgBacGround from'./Images/imgBackGround.gif'
+
 import "./Home.css"
 class Home extends Component {
     render(){
