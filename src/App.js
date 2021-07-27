@@ -15,6 +15,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import AboutUs from './components/AboutUs';
 
 
 class App extends React.Component {
@@ -77,6 +78,10 @@ class App extends React.Component {
                 <Route path="/recipefav">
                {isAuthenticated ?<FavRecipe/>:<LoginButton/>} 
                 </Route>
+                <Route path="/aboutus">
+                  <AboutUs/>
+                </Route>
+
             </Switch>
          
           {/* </IsLoadingAndError> */}
