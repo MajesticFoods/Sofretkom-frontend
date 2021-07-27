@@ -74,7 +74,7 @@ class App extends React.Component {
                 <Recipe/>
                 </Route>
                 <Route path="/recipefav">
-                <FavRecipe/>
+               {isAuthenticated ?<FavRecipe/>:<LoginButton/>} 
                 </Route>
             </Switch>
          

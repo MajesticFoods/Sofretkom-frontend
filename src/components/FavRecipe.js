@@ -1,61 +1,128 @@
 import React, { Component } from 'react'
 import { withAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
-import FavSingleRecipe from './FavSingleRecipe';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Card from 'react-bootstrap/Card'
+import UpdateFormModal from './UpdateFormModal';
+import Button from 'react-bootstrap/Button'
 
- class FavRecipe extends Component {
-     constructor(props){
-         super(props)
-         this.state={
-             favDataArray:[],
-             userEmail:'',
-             ShowFavData:false
+class FavRecipe extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            favDataArray: [],
+            userEmail: '',
+            ShowFavData: false,
+            updateLabel: '',
+            server: process.env.REACT_APP_PORT,
+            index:0,
+      showUpdate:false,
+      updateImage:'',
+    
+        }
+    }
 
-
-         }
-     }
-
-       componentDidMount= async()=>{
+    componentDidMount = async () => {
         const { user } = this.props.auth0;
         await this.setState({
             userEmail: `${user.email}`
-          })
-          const email = this.state.userEmail
+        })
+        const email = this.state.userEmail
+        const FavData = await axios.get(`${process.env.REACT_APP_PORT}/GetFavData/${email}`)
+        this.setState({
+            favDataArray: FavData.data,
+            ShowFavData: true
+        })
+
+        console.log(this.state.favDataArray)
+    }
+    showUpdateRecipeForm=(index)=>{
+      this.setState({
+        showUpdate: true,
+        index:index,
+        updateLabel:this.state.favDataArray[index].label,
+        updateImage:this.state.favDataArray[index].image,
+      //   updateIngredients: this.state.item[idx].ingredientse,
+        })
+        console.log(this.state.updateLabel)
+
+      }    
+    updateRecipeFun = async (event) => {
+        event.preventDefault();
+        const { user } = this.props.auth0;
+        let updateObject = {
+            updateLabel: event.target.updateLabel.value,
+            updateImage:event.target.updateImage.value,
+            // updateIngredients: event.target.updateIngredients.value,
+            userEmail: user.email,
+        }
+        let update = await axios.put(`${this.state.server}/updateRecipe/${this.state.index}`, updateObject);
+        console.log(update);
+        this.setState({
+        favDataArray: update.data,
+        
+        }
+        )
       
-           const FavData= await axios.get(`${process.env.REACT_APP_PORT}/GetFavData/${email}`)
-           this.setState({
-            favDataArray:FavData.data,
+        console.log(this.state.updateLabel);
 
-            ShowFavData:true
-           }) 
+    }
+    
+        handleClose=()=>{
+          this.setState({
+            showUpdate:false,
+          })
+        }
+        DeleteRecipe = async (index) => {
 
-           console.log(this.state.favDataArray)
-       }
-
+    
+          console.log(index);
+          let id=this.state.favDataArray[index]._id
+          const { user ,isAuthenticated} = this.props.auth0;
+         let paramsobj={userEmail : `${user.email}`
+      
+         }
+          // let RecipeData=await axios.delete(`http://localhost:3001/DeleteRecipe/${index}`)
+          let RecipeData=await axios.delete(`http://localhost:3001/DeleteRecipe/${id}`,{params:paramsobj})
+          await this.setState({
+           favDataArray:RecipeData.data
+          })
+         
+          }
     render() {
-
-
 
         return (
             <>
-            {this.state.ShowFavData &&
-            
-            this.state.favDataArray.map((item,idx)=>{
-                return(
-                    <FavSingleRecipe
-                    item={item}
-                    idx={idx}
-                    />
-                )
-            })
-            
-            }
+                {this.state.ShowFavData &&
+                    this.state.favDataArray.map((item, index) => {
+                        return (
+                            <> 
+                            <Card key={index} className="RecipeCard" style={{ width: '22rem' }}>
+                            <Card.Img variant="top" src={item.image} />
+                            <Card.Body>
+                              <Card.Title>{item.label}</Card.Title>
+                              <Card.Text>
+                                {item.ingredients.map((element, index) => {
+                                  return <li key={index}>{element.text}</li>;
+                                })}
+                              </Card.Text>
+                              <Button onClick={()=>this.showUpdateRecipeForm(index)} >Update</Button>
+                              <Button onClick={ ()=>this.DeleteRecipe(index) }>Delete</Button>
+
+                            </Card.Body>
+                          </Card> 
+                          
+                           </> 
+                            )
+                    })
+
+                }
                 
+          <UpdateFormModal show={this.state.showUpdate} updateRecipeFun={this.updateRecipeFun} updateLabel={this.state.updateLabel} handleClose={this.handleClose} updateImage={this.state.updateImage}/>
             </>
+
         )
     }
 }
 
-export default withAuth0 (FavRecipe)
+export default withAuth0(FavRecipe)
