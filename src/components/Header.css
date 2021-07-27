@@ -4,4 +4,22 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: black;
+  color: antiquewhite;
 }
+.navLink{
+  text-decoration: none;
+  color: aliceblue;
+  font-family: 'Lobster', cursive;
+  font-size: 20px;
+}
+.navLink:active {
+  font-size: 26px;
+  color: #FF7315;
+ 
+}
+a:hover {
+ 
+  color:#FF7315
+}
+
