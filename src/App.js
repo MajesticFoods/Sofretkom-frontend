@@ -70,7 +70,7 @@ class App extends React.Component {
               
               {/* TODO: add a route with a path of '/profile' that renders a `Profile` component */}
               <Route path="/profile">
-                <Profile/>
+              {isAuthenticated ?<Profile/>:<LoginButton/>}
               </Route>
               <Route path="/recipe">
                 <Recipe/>
