@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Header from './components/Header'
-
+import Footer from './components/Footer'
 import LoginButton from'./components/LoginButton.js'
 
 import { withAuth0 } from '@auth0/auth0-react';
@@ -15,6 +15,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+
 
 class App extends React.Component {
 
@@ -74,14 +75,14 @@ class App extends React.Component {
                 <Recipe/>
                 </Route>
                 <Route path="/recipefav">
-                <FavRecipe/>
+               {isAuthenticated ?<FavRecipe/>:<LoginButton/>} 
                 </Route>
             </Switch>
          
           {/* </IsLoadingAndError> */}
         </Router>
        
-     
+     <Footer/>
       </>
     );
   }
