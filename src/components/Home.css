@@ -154,3 +154,115 @@
         margin-bottom: -40px;
     }
 }
+/* -------------------------------pra */
+
+/* .prahome{
+  color: #F4F4F4;
+  font-family: "trebuchet MS";
+
+font-size: 12pt;
+text-align: justify;  
+line-height: 28px;  
+padding: 10px;
+margin-top: 10px;
+} */
+
+h1{
+  text-transform: uppercase;
+  color: #f0831d;
+  position: relative;
+  left: 195px;
+}
+p{
+  /* text-align: justify; */
+  color: #F4F4F4;
+  position: relative;
+  left: 204px;
+}
+section{
+  display:flex;
+  flex-direction: columns;
+  height:100%;
+  position:relative;
+  top: -86px;
+}
+section:after{
+  content:'';
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  background: url('https://image.shutterstock.com/image-photo/food-background-italian-pasta-ravioli-260nw-1321535978.jpg');
+  background-size: cover;
+  /* background-position: 50% 50%; */
+  opacity:0.8;
+}
+
+/* @mixin setBtn($borderColor,$bgColor,$txtColor){
+  border:1px solid $borderColor;
+  background: $bgColor;
+  color:$txtColor;
+} */
+.intro{
+  margin: auto;
+  width:20%;
+  position:relative;
+  z-index:1;
+}
+
+/* @media only screen and (max-width: 800px){
+  .intro{
+    width:80%;
+  }
+} */
+
+/* ----------------------------------------- */
+
+.texthome .textw {
+  font-family: sans-serif;
+  text-transform: uppercase;
+  display: block;
+}
+
+.texthome{
+  text-align: center;
+  position: absolute;
+  left: 643px;
+  top: 724px;
+  transform: translate(-50%,-50%); 
+  width: 100%;
+}
+
+.textw {
+  font-size: 60px;
+  font-weight: 700;
+  color: #F4F4F4;
+  letter-spacing: 8px;
+  margin-bottom: 20px;
+  background: #000;
+  position: relative;
+  animation: text 3s 1;
+}
+
+.textm {
+  font-size: 30px;
+  color: #f0831d;
+}
+
+@keyframes text {
+  0%{
+      color: #000;
+      margin-bottom: -40px;
+  }
+
+  30%{
+      letter-spacing: 25px;
+      margin-bottom: -40px;
+  }
+
+  85%{
+      letter-spacing: 8px;
+      margin-bottom: -40px;
+  }
+}

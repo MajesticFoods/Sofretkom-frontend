@@ -56,7 +56,7 @@ class Home extends Component {
           <img src={food1} alt="Avatar" className="images" />
          
           <div className="overlay">
-            <div className="text">any thing  here will kfjv kfj lrknf ktj </div>
+            <div className="text">Search for any recipe </div>
           </div>
         </div>
       </div>
@@ -69,7 +69,7 @@ class Home extends Component {
          <img className='images' src={food2} />
         
          <div className="overlay">
-           <div className="text">any thing  here will kfjv kfj lrknf ktj </div>
+           <div className="text">Make your favorite recipe blog </div>
          </div>
        </div>
      </div>
@@ -83,11 +83,34 @@ class Home extends Component {
          {food3} />
         
          <div className="overlay">
-           <div className="text">any thing  here will kfjv kfj lrknf ktj </div>
+           <div className="text">Enjoy your time of food and feel like home</div>
          </div>
        </div>
      </div>
      </div>
+
+     {/* ---------------------- pra */}
+     {/* <div>
+       <p className='prahome'>
+       Hey food bloggers,eaters and cookers,this is your website"SOFRETKOM",the home of all recipes where you can find anything you want about food,making your own blog with your favorite recipes,and even making you feel hungry.
+       search for any recipe and feel like home because this is the home of recipes,enjoy your time.
+       </p>
+     </div> */}
+
+
+{/* <div class="texthome">
+        <span class="textw">'The home of '</span>
+        <span class="textm">Food</span>
+    </div> */}
+
+<section className='allpra'>
+  <div class="intro">
+    <h1>SOFRETKOM</h1>
+    <p> Hey food bloggers,eaters and cookers,<br></br>this is your website"SOFRETKOM",the home of all recipes where you can find anything you want about food,making your own blog with your favorite recipes,and even making you feel hungry.
+       search for any recipe and feel like home because this is the home of recipes,enjoy your time.</p>
+   
+  </div>
+</section>
             </>
         )
      
