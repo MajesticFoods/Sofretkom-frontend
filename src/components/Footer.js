@@ -10,14 +10,14 @@ const FooterPage = () => {
       <MDBContainer fluid className="text-center text-md-left">
         <MDBRow>
           <MDBCol md="6">
-            <h5 className="title">Sofretkom</h5>
+            <h4 className="title">Sofretkom</h4>
             <p>
             A website for the best recipes
             </p>
           </MDBCol>
           <MDBCol md="6">
-            <h5 className="title">Connect<br></br>
-Follow Us</h5>
+            <h4 className="title">Connect<br></br>
+Follow Us</h4>
             <ul>
               <li className="list-unstyled">
                 <a href="#!">Link 1</a>

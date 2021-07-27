@@ -14,7 +14,7 @@ import { FaPersonBooth } from "react-icons/fa";
 import { FaUserCircle } from "react-icons/fa";
 
 
-import { FaBeer } from "@react-icons/all-files/fa/FaBeer"
+
 
 
 

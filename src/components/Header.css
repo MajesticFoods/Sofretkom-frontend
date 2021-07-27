@@ -13,12 +13,13 @@
   font-family: 'Lobster', cursive;
   font-size: 20px;
 }
-a:active {
+.navLink:active {
   font-size: 26px;
+  color: #FF7315;
  
 }
 a:hover {
  
-  color:azure
+  color:#FF7315
 }
 

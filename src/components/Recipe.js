@@ -100,9 +100,10 @@ functionShow =(item)=>{
       <>
       {/* <Home AddFav={this.AddFav}/> */}
         <div>
-          <Form onSubmit={this.submitHandler}>
+
+          <Form onSubmit={this.submitHandler}  className="search">
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Control type="text" placeholder="Search" name="search" />
+              <Form.Control className="searchi" type="text" placeholder="Search" name="search" />
 
               <Form.Select className='mealType' onChange={this.handleMealType} aria-label="Default select example">
                 <option>Choose your meal..</option>
