@@ -14,11 +14,11 @@ class FavRecipe extends Component {
             userEmail: '',
             ShowFavData: false,
             updateLabel: '',
-            updateIngredients: [],
             server: process.env.REACT_APP_PORT,
             index:0,
       showUpdate:false,
-      
+      updateImage:'',
+    
         }
     }
 
@@ -41,6 +41,7 @@ class FavRecipe extends Component {
         showUpdate: true,
         index:index,
         updateLabel:this.state.favDataArray[index].label,
+        updateImage:this.state.favDataArray[index].image,
       //   updateIngredients: this.state.item[idx].ingredientse,
         })
         console.log(this.state.updateLabel)
@@ -49,18 +50,20 @@ class FavRecipe extends Component {
     updateRecipeFun = async (event) => {
         event.preventDefault();
         const { user } = this.props.auth0;
-
         let updateObject = {
             updateLabel: event.target.updateLabel.value,
+            updateImage:event.target.updateImage.value,
             // updateIngredients: event.target.updateIngredients.value,
             userEmail: user.email,
         }
         let update = await axios.put(`${this.state.server}/updateRecipe/${this.state.index}`, updateObject);
+        console.log(update);
         this.setState({
-            favDataArray: update.data
-
+        favDataArray: update.data,
+        
         }
         )
+      
         console.log(this.state.updateLabel);
 
     }
@@ -70,7 +73,22 @@ class FavRecipe extends Component {
             showUpdate:false,
           })
         }
+        DeleteRecipe = async (index) => {
 
+    
+          console.log(index);
+          let id=this.state.favDataArray[index]._id
+          const { user ,isAuthenticated} = this.props.auth0;
+         let paramsobj={userEmail : `${user.email}`
+      
+         }
+          // let RecipeData=await axios.delete(`http://localhost:3001/DeleteRecipe/${index}`)
+          let RecipeData=await axios.delete(`http://localhost:3001/DeleteRecipe/${id}`,{params:paramsobj})
+          await this.setState({
+           favDataArray:RecipeData.data
+          })
+         
+          }
     render() {
 
         return (
@@ -89,15 +107,18 @@ class FavRecipe extends Component {
                                 })}
                               </Card.Text>
                               <Button onClick={()=>this.showUpdateRecipeForm(index)} >Update</Button>
+                              <Button onClick={ ()=>this.DeleteRecipe(index) }>Delete</Button>
+
                             </Card.Body>
                           </Card> 
+                          
                            </> 
                             )
                     })
 
                 }
                 
-          <UpdateFormModal show={this.state.showUpdate} updateRecipeFun={this.updateRecipeFun} updateLabel={this.state.updateLabel} handleClose={this.handleClose} />
+          <UpdateFormModal show={this.state.showUpdate} updateRecipeFun={this.updateRecipeFun} updateLabel={this.state.updateLabel} handleClose={this.handleClose} updateImage={this.state.updateImage}/>
             </>
 
         )
