@@ -14,7 +14,7 @@ const plantsList = [
       "https://ca.slack-edge.com/TNGRRLUMA-U01QQMGRCJK-6def7491c471-512",
       link: "https://github.com/OsamaBaker",
       major:"Software Developer",
-      linkedin:"https://github.com/OsamaBaker",
+      linkedin:"https://www.linkedin.com/in/osamabaker1/",
       left:-10 ,
       bottom: 70 },
     
@@ -24,6 +24,7 @@ const plantsList = [
       "https://ca.slack-edge.com/TNGRRLUMA-U01TUDCJV1B-38205f88244d-512",
       link: "https://github.com/OdehYazan",
       major:"Software Developer",
+      linkedin:"https://www.linkedin.com/in/yazan-odeh-1a036b208/",
       left: 90,
       bottom: 70 },
     
@@ -33,6 +34,7 @@ const plantsList = [
     //   "https://ca.slack-edge.com/TNGRRLUMA-U01R5LSQRB5-9e5b6685630e-512",
       link: "https://github.com/emanmkhareez",
       major:"Software Developer",
+      linkedin:"https://www.linkedin.com/in/eman-mkhareez-10b5b320a/",
       left: 38,
       bottom: 70 },
     
@@ -42,6 +44,7 @@ const plantsList = [
       "https://ca.slack-edge.com/TNGRRLUMA-U01UA7FJKCH-75afe4d57739-512",
       link: "https://github.com/MAMOUN-kamal-alshisani",
       major:"Software Developer",
+      linkedin:"https://www.linkedin.com/in/mamounalshishani-350277210",
       left: 38,
       bottom: 32 },
     
@@ -51,6 +54,7 @@ const plantsList = [
       "https://ca.slack-edge.com/TNGRRLUMA-U01TXMV2XT5-b09032435340-512",
       link: "https://github.com/sereendaqamsih",
       major:"Software Developer",
+      linkedin:"https://www.linkedin.com/in/sereendaqamsih",
       left: 90,
       bottom: 32  },
     
@@ -60,6 +64,7 @@ const plantsList = [
     //   "https://ca.slack-edge.com/TNGRRLUMA-U01TXNE4N3V-0d14ff71a07d-512",
       link: "https://github.com/wijdankhaled",
       major:"Software Developer",
+      linkedin:"https://www.linkedin.com/in/wijdan-khaled-4b9a411b6/",
       left: -10,
       bottom: 32  }];
     
