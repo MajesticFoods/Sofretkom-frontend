@@ -16,8 +16,10 @@ class FavRecipe extends Component {
             updateLabel: '',
             server: process.env.REACT_APP_PORT,
             index:0,
+            idx:0,
       showUpdate:false,
       updateImage:'',
+      updateIngredients:''
     
         }
     }
@@ -42,21 +44,27 @@ class FavRecipe extends Component {
         index:index,
         updateLabel:this.state.favDataArray[index].label,
         updateImage:this.state.favDataArray[index].image,
-      //   updateIngredients: this.state.item[idx].ingredientse,
+        updateIngredients:this.state.favDataArray[index].ingredients
         })
-        console.log(this.state.updateLabel)
+        console.log(this.state.updateIngredients)
 
       }    
+
     updateRecipeFun = async (event) => {
         event.preventDefault();
+       
         const { user } = this.props.auth0;
         let updateObject = {
             updateLabel: event.target.updateLabel.value,
             updateImage:event.target.updateImage.value,
-            // updateIngredients: event.target.updateIngredients.value,
+            
+            updateIngredients: event.target.updateIngredients.value,
+
+    
             userEmail: user.email,
         }
-        let update = await axios.put(`${this.state.server}/updateRecipe/${this.state.index}`, updateObject);
+        console.log('mnbvcxz', updateObject.updateIngredients)
+        let update = await axios.put(`${this.state.server}/updateRecipe/${this.state.index}`,updateObject);
         console.log(update);
         this.setState({
         favDataArray: update.data,
@@ -65,6 +73,7 @@ class FavRecipe extends Component {
         )
       
         console.log(this.state.updateLabel);
+        console.log(updateObject.updateIngredients);
 
     }
     
@@ -102,9 +111,10 @@ class FavRecipe extends Component {
                             <Card.Body>
                               <Card.Title>{item.label}</Card.Title>
                               <Card.Text>
-                                {item.ingredients.map((element, index) => {
+                                {/* {item.ingredients.map((element, index) => {
                                   return <li key={index}>{element.text}</li>;
-                                })}
+                                })} */}
+                                {item.ingredients}
                               </Card.Text>
                               <Button onClick={()=>this.showUpdateRecipeForm(index)} >Update</Button>
                               <Button onClick={ ()=>this.DeleteRecipe(index) }>Delete</Button>
@@ -118,7 +128,7 @@ class FavRecipe extends Component {
 
                 }
                 
-          <UpdateFormModal show={this.state.showUpdate} updateRecipeFun={this.updateRecipeFun} updateLabel={this.state.updateLabel} handleClose={this.handleClose} updateImage={this.state.updateImage}/>
+          <UpdateFormModal show={this.state.showUpdate} updateRecipeFun={this.updateRecipeFun} updateLabel={this.state.updateLabel} updateImage={this.state.updateImage}handleClose={this.handleClose} updateIngredients={this.state.updateIngredients}/>
             </>
 
         )
