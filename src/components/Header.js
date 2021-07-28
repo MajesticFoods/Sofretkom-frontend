@@ -2,7 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from "react-router-dom";
-
+import logo1 from'./Images/logo1.png'
 import LoginButton from './LoginButton';
 import LogoutButton from './LogoutButton';
 import { withAuth0 } from '@auth0/auth0-react';
@@ -26,13 +26,14 @@ class Header extends React.Component {
       <>
          
       <Navbar collapseOnSelect expand="lg" className="Navbar">
-        <Navbar.Brand>Sofretkom</Navbar.Brand>
+        {/* <Navbar.Brand>Sofretkom</Navbar.Brand> */}
         <Link to="/" className="navLink" ><FaHome /> Home</Link>
         <Link to="/profile" className="navLink"><FaUserCircle/>Profile</Link>
         <Link to="/recipe" className="navLink"><FaSearch/>Search</Link>
         <Link to="/recipefav" className="navLink"><FaHeart/>MyREcipe</Link>
         <Link to="/aboutus" className="navLink">About Us</Link>
 
+        <img src={logo1} alt="Avatar" className='logoimg' />
         {/* TODO: if the user is logged in, render the `LogoutButton` - if the user is logged out, render the `LoginButton` */}
 
         {

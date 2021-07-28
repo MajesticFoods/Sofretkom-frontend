@@ -9,9 +9,11 @@
 }
 .navLink{
   text-decoration: none;
-  color: aliceblue;
-  font-family: 'Lobster', cursive;
-  font-size: 20px;
+    color: aliceblue;
+    font-family: 'Lobster', cursive;
+    font-size: 20px;
+    position: relative;
+    left: 319px;
 }
 .navLink:active {
   font-size: 26px;
@@ -23,3 +25,9 @@ a:hover {
   color:#FF7315
 }
 
+.logoimg{
+  width: 79px;
+    position: relative;
+    top: -1px;
+    right: 957px;
+}
