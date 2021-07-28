@@ -31,6 +31,8 @@ class Header extends React.Component {
         <Link to="/profile" className="navLink"><FaUserCircle/>Profile</Link>
         <Link to="/recipe" className="navLink"><FaSearch/>Search</Link>
         <Link to="/recipefav" className="navLink"><FaHeart/>MyREcipe</Link>
+        <Link to="/aboutus" className="navLink">About Us</Link>
+
         <img src={logo1} alt="Avatar" className='logoimg' />
         {/* TODO: if the user is logged in, render the `LogoutButton` - if the user is logged out, render the `LoginButton` */}
 
