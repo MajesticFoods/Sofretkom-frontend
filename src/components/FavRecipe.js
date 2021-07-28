@@ -118,7 +118,7 @@ class FavRecipe extends Component {
 
                 }
                 
-          <UpdateFormModal show={this.state.showUpdate} updateRecipeFun={this.updateRecipeFun} updateLabel={this.state.updateLabel} handleClose={this.handleClose} updateImage={this.state.updateImage}/>
+          <UpdateFormModal show={this.state.showUpdate} updateRecipeFun={this.updateRecipeFun} updateLabel={this.state.updateLabel} updateImage={this.state.updateImage}handleClose={this.handleClose} />
             </>
 
         )

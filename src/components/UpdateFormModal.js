@@ -16,7 +16,7 @@ export class UpdateFormModal extends Component {
             {/* {this.props.updateIngredients.map((element, index) => {
                         return <Form.Control size="lg" type="text"  name='updateIngredients' key={index} defaultValue={element.text}/> ;
                       })} */}
-             <Form.Control size="lg" type="text" name='updateImage' defaultValue={this.props.updtaeImage}/> 
+             <Form.Control size="lg" type="text" name='updateImage' defaultValue={this.props.updateImage}/> 
 
         <Button type='submit' variant="secondary">
                 Submite
