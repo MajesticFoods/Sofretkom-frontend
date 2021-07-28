@@ -1,19 +1,22 @@
 .RecipeCard {
-    display: inline-block;
-    margin-left: 20px;
-    margin-top: 50px;
-    
+  display: inline-block;
+  margin-left: 20px;
+  margin-top: 50px;
+  
 }
 
 p.card-text{
-    height: 300px;
-    overflow: scroll;
+  height: 300px;
+  overflow: scroll;
+  text-align: justify;
 }
 
-.TheButton{margin-left: 760px; 
+.TheButton{
+  margin-left: 760px; 
 
-  margin-top:-10px;
-
+margin-top:-10px;
+position: relative;
+left: -385px;
 
 
 }
@@ -21,176 +24,172 @@ p.card-text{
 
 
 .btn-5 {
-    width: 130px;
-    height: 40px;
-    line-height: 42px;
-    padding: 0;
-    border: none;
-    background: rgb(255, 115, 21);
-  background: linear-gradient(0deg, rgba(255, 115, 21) 0%, rgba(255, 115, 21) 100%);
-  border-radius: 22px;
+  width: 130px;
+  height: 40px;
+  line-height: 42px;
+  padding: 0;
+  border: none;
+  background: rgb(255, 115, 21);
+background: linear-gradient(0deg, rgba(255, 115, 21) 0%, rgba(255, 115, 21) 100%);
+border-radius: 22px;
 
-  }
-  .btn-5:hover {
-    color: #FF7315;
-    background: transparent;
-     box-shadow:none;
-  }
-  .btn-5:before,
-  .btn-5:after{
-    content:'';
-    position:absolute;
-    top:0;
-    right:0;
-    height:2px;
-    width:0;
-    background: #FF7315;
-    box-shadow:
-     -1px -1px 5px 0px #fff,
-     7px 7px 20px 0px #0003,
-     4px 4px 5px 0px #0002;
-    transition:400ms ease all;
-  }
-  .btn-5:after{
-    right:inherit;
-    top:inherit;
-    left:0;
-    bottom:0;
-  }
-  .btn-5:hover:before,
-  .btn-5:hover:after{
-    width:100%;
-    transition:800ms ease all;
-  }
+}
+.btn-5:hover {
+  color: #FF7315;
+  background: transparent;
+   box-shadow:none;
+}
+.btn-5:before,
+.btn-5:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #FF7315;
+  box-shadow:
+   -1px -1px 5px 0px #fff,
+   7px 7px 20px 0px #0003,
+   4px 4px 5px 0px #0002;
+  transition:400ms ease all;
+}
+.btn-5:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.btn-5:hover:before,
+.btn-5:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
 /* ------------------------------- card */
 
 /* 
 .cards {
-  display: flex;
-  align-items: flex-start;
-    justify-content: center;
-
+display: flex;
+align-items: flex-start;
+  justify-content: center;
 } */
 
 .card {
-  background: #302d2d;
-  width: 24em;
-  border-radius: 0.6em;
-  /* margin: 1em; */
-  overflow: hidden;
-  cursor: pointer;
-  box-shadow: 0 13px 27px -5px hsla(240, 30.1%, 28%, 0.25), 0 8px 16px -8px hsla(0, 0%, 0%, 0.3), 0 -6px 16px -6px hsla(0, 0%, 0%, 0.03);
-  transition: all ease 200ms;
-  
+background: #302d2d;
+width: 24em;
+border-radius: 0.6em;
+/* margin: 1em; */
+overflow: hidden;
+cursor: pointer;
+box-shadow: 0 13px 27px -5px hsla(240, 30.1%, 28%, 0.25), 0 8px 16px -8px hsla(0, 0%, 0%, 0.3), 0 -6px 16px -6px hsla(0, 0%, 0%, 0.03);
+transition: all ease 200ms;
+
 }
 
 .card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 13px 40px -5px hsla(240, 30.1%, 28%, 0.12), 0 8px 32px -8px hsla(0, 0%, 0%, 0.14), 0 -6px 32px -6px hsla(0, 0%, 0%, 0.02);
+transform: scale(1.03);
+box-shadow: 0 13px 40px -5px hsla(240, 30.1%, 28%, 0.12), 0 8px 32px -8px hsla(0, 0%, 0%, 0.14), 0 -6px 32px -6px hsla(0, 0%, 0%, 0.02);
 }
 
 .card img {
-  width: 100%;
-  object-fit: cover;
+width: 100%;
+object-fit: cover;
 }
 
 .card h2 {
-  color: #FF7315;
-  margin-top: -0.2em;
-  line-height: 1.4;
-  font-size: 1.3em;
-  font-weight: 500;
-  font-family: 'Montserrat', sans-serif;
-  transition: all ease-in 100ms;
+color: #FF7315;
+margin-top: -0.2em;
+line-height: 1.4;
+font-size: 1.3em;
+font-weight: 500;
+font-family: 'Montserrat', sans-serif;
+transition: all ease-in 100ms;
 }
 
 .card p {
-  
-  color: #F4F4F4;
 
-    position: relative;
-    left: 10px;
+color: #F4F4F4;
+
+  position: relative;
+  left: 10px;
 
 }
 
 .card h5 {
-  color: #FF7315;
-  font-weight: 700;
-  font-size: 0.7em;
-  letter-spacing: 0.04em;
-  margin: 1.4em 0 0 0;
-  text-transform: uppercase;
+color: #FF7315;
+font-weight: 700;
+font-size: 0.7em;
+letter-spacing: 0.04em;
+margin: 1.4em 0 0 0;
+text-transform: uppercase;
 }
 
 .card-body {
-  padding: 1.2em;
+padding: 1.2em;
 }
 .h5, h5 {
-  font-size: 1.25rem;
-  color: #FF7315;
+font-size: 1.25rem;
+color: #FF7315;
 }
 
 .cards
 {
-  display: inline-flex;
-  justify-content: center;
-  position: relative;
-  /* right: -91px; */
+display: inline-flex;
+justify-content: center;
+position: relative;
+/* right: -91px; */
 }
 /* ---------------------------------------------- */
 
 /* .search{
-  background-color: #3A3535;
-  color: #FF7315;
+background-color: #3A3535;
+color: #FF7315;
 } */
 .searchi{
   background: #3A3535;
   border: solid 1px #FF7315;
   color: #F4F4F4;
   border-radius: 22px;
-  width: 30%;
-  margin-left:570px;
+  width: 42%;
+  margin-left: 570px;
   text-align: center;
   font-size: large;
- 
-}
-.searchi {
-
-
+  position: relative;
+  left: -195px;
 
 }
+
 /* input.searchi{
-  background-color: #3A3535;
+background-color: #3A3535;
 } */
 .mealType {
- 
-  border: solid 1px #FF7315;
-  background-color:#3A3535 ;
- text-shadow: orangered;
- color: #F4F4F4;
- border-radius: 22px;
-align-items: center;
-/* margin-right: 600px; */
-/* float:right; */
-width: 250px;
-display: inline;
-margin-top: 5px;
-justify-content: center;
-position: relative;
-right: -573px;
-}
-/* .CuisineType{
 
-  background-color:#3A3535 ;
+  border: solid 1px #FF7315;
+  background-color: #3A3535;
   text-shadow: orangered;
   color: #F4F4F4;
   border-radius: 22px;
- align-items: center;
- width: 250px;
-    display:inline-flex;
-    margin-left: 576px;
-    margin-top: 5px;
-  
+  align-items: center;
+  /* margin-right: 600px; */
+  /* float: right; */
+  width: 250px;
+  display: inline;
+  margin-top: 5px;
+  justify-content: center;
+  position: relative;
+  right: 7px;
+}
+/* .CuisineType{
+background-color:#3A3535 ;
+text-shadow: orangered;
+color: #F4F4F4;
+border-radius: 22px;
+align-items: center;
+width: 250px;
+  display:inline-flex;
+  margin-left: 576px;
+  margin-top: 5px;
+
 } */
 Form option{
 text-align: center;
@@ -205,18 +204,16 @@ text-align: center;
 }
 
 /* input{
-  background: #111;
-  color: red;
-  width: 100%;
-  border-radius: 22px;
-  padding: 12px; 
-   
+background: #111;
+color: red;
+width: 100%;
+border-radius: 22px;
+padding: 12px; 
+ 
 } */
 
 /* ----------------------------- modal */
 
 .modal{
-  background-color: #3A3535;
+background-color: #3A3535;
 }
-
-

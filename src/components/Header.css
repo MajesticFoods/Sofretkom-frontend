@@ -6,6 +6,8 @@
   justify-content: space-between;
   background-color: black;
   color: antiquewhite;
+  position: relative;
+  right: 20px;
 }
 .navLink{
   text-decoration: none;
@@ -13,7 +15,8 @@
     font-family: 'Lobster', cursive;
     font-size: 20px;
     position: relative;
-    left: 319px;
+    left: 200px;
+    /* padding-right: 10px; */
 }
 .navLink:active {
   font-size: 26px;

@@ -1,3 +1,5 @@
+
+
 import React from "react";
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
 import "./Footer.css"
@@ -29,15 +31,11 @@ const FooterPage = () => {
               <li className="list-unstyled">
                 <a href="#!"><FaInstagram/></a>
               </li>
-
-
               <li className="list-unstyled">
               <a href="https://www.facebook.com/flauntermedia/" className="icons">
-
                                 <img className="imgs" src="https://www.flaunter.com/wp-content/themes/flaunter/img/icons/facebook-white.svg"/>
                             </a>
                 
-
               </li>
               <li className="list-unstyled">
                 <a href="#!">Link 3</a>
@@ -50,18 +48,18 @@ const FooterPage = () => {
           <div className="social-links">
 
             <a href="#" className="icons">
-              <img className="imgs" src="https://www.flaunter.com/wp-content/themes/flaunter/img/icons/facebook-white.svg" />
+              <img className="footer" src="https://www.flaunter.com/wp-content/themes/flaunter/img/icons/facebook-white.svg" />
             </a>
             <a href="#" className="icons">
-              <img className="imgs" src="https://www.flaunter.com/wp-content/themes/flaunter/img/icons/instagram-white.svg" />
+              <img className="footer" src="https://www.flaunter.com/wp-content/themes/flaunter/img/icons/instagram-white.svg" />
 
             </a>
             <a href="#" className="icons">
-              <img className="imgs" src="https://www.flaunter.com/wp-content/themes/flaunter/img/icons/twitter-white.svg" />
+              <img className="footer" src="https://www.flaunter.com/wp-content/themes/flaunter/img/icons/twitter-white.svg" />
               
             </a>
             <a href="#" className="icons">
-              <img className="imgs" src="https://www.flaunter.com/wp-content/themes/flaunter/img/icons/linkedin-white.svg" />
+              <img className="footer" src="https://www.flaunter.com/wp-content/themes/flaunter/img/icons/linkedin-white.svg" />
               
             </a>
 

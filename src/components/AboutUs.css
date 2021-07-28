@@ -1,9 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Handlee|Dosis");
-* {
-  font-family: "Handlee", cursive;
-  box-sizing: border-box;
-}
-
 body {
   margin: 10px;
   text-align: center;
@@ -136,7 +130,7 @@ body {
   transition:800ms ease all;
 }
 /* --------------- */
-.main-title {
+.main-title1 {
   font-size: 35px;
   line-height: 1;
   color:white;
@@ -145,8 +139,8 @@ body {
   font-family: 'Lobster', cursive;
 
 }
-.main-title:before,
-.main-title:after{
+.main-title1:before,
+.main-title1:after{
   content:'';
   position:absolute;
   top:0;
@@ -160,31 +154,27 @@ body {
    4px 4px 5px 0px #0002;
   transition:400ms ease all;
 }
-.main-title:after{
+.main-title1:after{
   right:inherit;
   top:inherit;
   left:0;
   bottom:0;
 }
-.main-title:hover:before,
-.main-title:hover:after{
+.main-title1:hover:before,
+.main-title1:hover:after{
   width:100%;
   transition:800ms ease all;
 }
 /* @import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
-
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	font-family: "Poppins", sans-serif;
 }
-
-
 .content {
 	position: relative;
 }
-
 .content h2 {
 	color: #fff;
 	font-size: 4em;
@@ -193,17 +183,14 @@ body {
   top:74px;
 	transform: translate(-50%, -50%);
 }
-
 .content h2:nth-child(1) {
 	color: transparent;
 	-webkit-text-stroke: 2px white;
 }
-
 .content h2:nth-child(2) {
 	color: rgb(255, 115, 21);
 	animation: animate 4s ease-in-out infinite;
 }
-
 @keyframes animate {
 	0%,
 	100% {
@@ -219,7 +206,6 @@ body {
 			0% 100%
 		);
 	}
-
 	50% {
 		clip-path: polygon(
 			0% 60%,
