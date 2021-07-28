@@ -105,7 +105,10 @@ p.card-text{
 }
 
 .card p {
+  
   color: #F4F4F4;
+    position: relative;
+    left: 10px;
 }
 
 .card h5 {
@@ -130,7 +133,7 @@ p.card-text{
   display: inline-flex;
   justify-content: center;
   position: relative;
-  right: -91px;
+  /* right: -91px; */
 }
 /* ---------------------------------------------- */
 

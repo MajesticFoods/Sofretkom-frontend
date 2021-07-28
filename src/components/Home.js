@@ -97,15 +97,15 @@ class Home extends Component {
        </p>
      </div> */}
 
+{/* <div>
+<h2 >Our vesion</h2>
+</div> */}
 
-{/* <div class="texthome">
-        <span class="textw">'The home of '</span>
-        <span class="textm">Food</span>
-    </div> */}
+
 
 <section className='allpra'>
   <div class="intro">
-    <h1>SOFRETKOM</h1>
+    <h1>Our vision</h1>
     <p> Hey food bloggers,eaters and cookers,<br></br>this is your website"SOFRETKOM",the home of all recipes where you can find anything you want about food,making your own blog with your favorite recipes,and even making you feel hungry.
        search for any recipe and feel like home because this is the home of recipes,enjoy your time.</p>
    
