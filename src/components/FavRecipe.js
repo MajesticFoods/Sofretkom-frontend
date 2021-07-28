@@ -50,20 +50,20 @@ class FavRecipe extends Component {
 
       }    
 
-    updateRecipeFun = async (event,idx) => {
+    updateRecipeFun = async (event) => {
         event.preventDefault();
-       await this.setState({
-          idx:idx
-        })
+       
         const { user } = this.props.auth0;
         let updateObject = {
             updateLabel: event.target.updateLabel.value,
             updateImage:event.target.updateImage.value,
             
-            updateIngredients: event.target.updateIngredients[idx].value,
+            // updateIngredients: this.props.array,
             userEmail: user.email,
         }
-        let update = await axios.put(`${this.state.server}/updateRecipe/${this.state.index}/${this.state.idx}`, updateObject);
+
+        console.log('bbbbbb',this.props.array)
+        let update = await axios.put(`${this.state.server}/updateRecipe/${this.state.index}`, updateObject);
         console.log(update);
         this.setState({
         favDataArray: update.data,

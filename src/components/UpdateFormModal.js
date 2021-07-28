@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
 import {Form , Button,Modal} from 'react-bootstrap/'
+import FavRecipe from './FavRecipe'
 
 export class UpdateFormModal extends Component {
   constructor(props){
-    super(props);
+    super(props)
     this.state={
-      <Form.Control size="lg" type="text"  name='updateIngredients' key={index} defaultValue={element.text}/> 
-
+array:[]
     }
   }
     render() {
+    
         return (
             <div> <Modal show={this.props.show} onHide={this.props.handleClose}>
             <Modal.Header closeButton>
@@ -17,16 +18,17 @@ export class UpdateFormModal extends Component {
             </Modal.Header>
             <Modal.Body>
              
-              <Form 
-              >
+              <Form onSubmit={this.props.updateRecipeFun}  >
             <Form.Control size="lg" type="text" name='updateLabel' defaultValue={this.props.updateLabel}/> 
             {this.props.updateIngredients.map((element, index) => {
                         return (
                         <>
-                        <Form>
+                    {this.setState({
+                      array:element.text
+                    })}
                         <Form.Control size="lg" type="text"  name='updateIngredients' key={index} defaultValue={element.text}/> 
-                        <Button type='submit' variant="secondary" onSubmit={ ()=> this.props.updateRecipeFun(index)}>yalla</Button>
-                        </Form>
+                        <Button type='submit' variant="secondary" >yalla</Button>
+                   
                         </>
                         )
                       })}
@@ -48,7 +50,7 @@ export class UpdateFormModal extends Component {
               
             </Modal.Footer>
           </Modal>
-                
+                <FavRecipe array={this.state.array}/>
             </div>
         )
     }
