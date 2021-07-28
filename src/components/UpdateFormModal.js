@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {Form , Button,Modal} from 'react-bootstrap/'
 import FavRecipe from './FavRecipe'
+import './UpdateFormModal.css'
 
 export class UpdateFormModal extends Component {
 //   constructor(props){
@@ -12,13 +13,13 @@ export class UpdateFormModal extends Component {
     render() {
     
         return (
-            <div> <Modal show={this.props.show} onHide={this.props.handleClose}>
+            <div> <Modal className='ModalDiv' show={this.props.show} onHide={this.props.handleClose}>
             <Modal.Header closeButton>
               <Modal.Title>Update your Recipe!</Modal.Title>
             </Modal.Header>
             <Modal.Body>
              
-              <Form onSubmit={this.props.updateRecipeFun}  >
+              <Form className='FormFav' onSubmit={this.props.updateRecipeFun}  >
             <Form.Control size="lg" type="text" name='updateLabel' defaultValue={this.props.updateLabel}/> 
             {/* {this.props.updateIngredients.map((element, index) => {
                         return ( */}
@@ -38,7 +39,7 @@ export class UpdateFormModal extends Component {
 
         <Button className="custom-btn btn-5 logBTN" type='submit' variant="secondary">
 
-                Submite
+                Submit
               </Button>
            
                   
