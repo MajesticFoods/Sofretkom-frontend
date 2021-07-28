@@ -16,8 +16,10 @@ class FavRecipe extends Component {
             updateLabel: '',
             server: process.env.REACT_APP_PORT,
             index:0,
+            idx:0,
       showUpdate:false,
       updateImage:'',
+      updateIngredients:[]
     
         }
     }
@@ -42,21 +44,26 @@ class FavRecipe extends Component {
         index:index,
         updateLabel:this.state.favDataArray[index].label,
         updateImage:this.state.favDataArray[index].image,
-      //   updateIngredients: this.state.item[idx].ingredientse,
+        updateIngredients:this.state.favDataArray[index].ingredients
         })
-        console.log(this.state.updateLabel)
+        console.log(this.state.updateIngredients)
 
       }    
-    updateRecipeFun = async (event) => {
+
+    updateRecipeFun = async (event,idx) => {
         event.preventDefault();
+       await this.setState({
+          idx:idx
+        })
         const { user } = this.props.auth0;
         let updateObject = {
             updateLabel: event.target.updateLabel.value,
             updateImage:event.target.updateImage.value,
-            // updateIngredients: event.target.updateIngredients.value,
+            
+            updateIngredients: event.target.updateIngredients[idx].value,
             userEmail: user.email,
         }
-        let update = await axios.put(`${this.state.server}/updateRecipe/${this.state.index}`, updateObject);
+        let update = await axios.put(`${this.state.server}/updateRecipe/${this.state.index}/${this.state.idx}`, updateObject);
         console.log(update);
         this.setState({
         favDataArray: update.data,
@@ -65,6 +72,7 @@ class FavRecipe extends Component {
         )
       
         console.log(this.state.updateLabel);
+        console.log(updateObject.updateIngredients);
 
     }
     
@@ -118,7 +126,7 @@ class FavRecipe extends Component {
 
                 }
                 
-          <UpdateFormModal show={this.state.showUpdate} updateRecipeFun={this.updateRecipeFun} updateLabel={this.state.updateLabel} updateImage={this.state.updateImage}handleClose={this.handleClose} />
+          <UpdateFormModal show={this.state.showUpdate} updateRecipeFun={this.updateRecipeFun} updateLabel={this.state.updateLabel} updateImage={this.state.updateImage}handleClose={this.handleClose} updateIngredients={this.state.updateIngredients}/>
             </>
 
         )
