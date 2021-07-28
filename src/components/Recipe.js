@@ -134,7 +134,7 @@ functionShow =(item)=>{
           {this.state.recipes.map((item, index) => { 
             return (
               <>
-
+<div className='cards'>
                 <Card key={index} className="RecipeCard" style={{ width: '22rem' }}>
 
                   <Card.Img variant="top" src={item.image} />
@@ -148,7 +148,7 @@ functionShow =(item)=>{
                     <Button variant="primary" className="custom-btn btn-5" onClick={()=>this.functionShow(item)}>Add to favorites</Button>
                   </Card.Body>
                 </Card>
-
+</div>
 
 
                 

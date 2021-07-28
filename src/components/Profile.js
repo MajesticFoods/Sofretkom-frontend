@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withAuth0 } from '@auth0/auth0-react';
+import "./Profile.css";
 
 class Profile extends Component {
   render() {
@@ -10,8 +11,21 @@ class Profile extends Component {
     {
         isAuthenticated &&
         <>
-        <div>Hello {user.name}</div>;
-        <div>Hello {user.email}</div>
+        <div className='allimg1'>
+
+<div className='line1' >
+
+<div className="container11">
+<img src={user.picture} alt={user.name} className='images'/>
+
+<div className="overlay1">
+<div className="text11"> {user.name}</div>
+ <div className="text1"> {user.email} </div>       
+</div>
+</div>
+</div>
+</div>
+
         </>
     }
         
