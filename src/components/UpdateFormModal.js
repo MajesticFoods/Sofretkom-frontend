@@ -3,12 +3,12 @@ import {Form , Button,Modal} from 'react-bootstrap/'
 import FavRecipe from './FavRecipe'
 
 export class UpdateFormModal extends Component {
-  constructor(props){
-    super(props)
-    this.state={
-array:[]
-    }
-  }
+//   constructor(props){
+//     super(props)
+//     this.state={
+// array:[]
+//     }
+//   }
     render() {
     
         return (
@@ -20,18 +20,18 @@ array:[]
              
               <Form onSubmit={this.props.updateRecipeFun}  >
             <Form.Control size="lg" type="text" name='updateLabel' defaultValue={this.props.updateLabel}/> 
-            {this.props.updateIngredients.map((element, index) => {
-                        return (
-                        <>
-                    {this.setState({
+            {/* {this.props.updateIngredients.map((element, index) => {
+                        return ( */}
+                        {/* <> */}
+                    {/* {this.setState({
                       array:element.text
-                    })}
-                        <Form.Control size="lg" type="text"  name='updateIngredients' key={index} defaultValue={element.text}/> 
-                        <Button type='submit' variant="secondary" >yalla</Button>
-                   
-                        </>
-                        )
-                      })}
+                    })} */}
+                        <Form.Control size="lg" type="text"  name='updateIngredients'  defaultValue={this.props.updateIngredients}/> 
+                        {/* <Button type='submit' variant="secondary" >yalla</Button>
+                    */}
+                        {/* </> */}
+                        {/* ) */}
+                      {/* })} */}
              <Form.Control size="lg" type="text" name='updateImage' defaultValue={this.props.updateImage}/> 
              {/* <Form.Control size="lg" type="text" name='updateImage' defaultValue={this.props.updateIngredients}/>  */}
 
@@ -50,7 +50,7 @@ array:[]
               
             </Modal.Footer>
           </Modal>
-                <FavRecipe array={this.state.array}/>
+                {/* <FavRecipe array={this.state.array}/> */}
             </div>
         )
     }

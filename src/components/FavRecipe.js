@@ -19,7 +19,7 @@ class FavRecipe extends Component {
             idx:0,
       showUpdate:false,
       updateImage:'',
-      updateIngredients:[]
+      updateIngredients:''
     
         }
     }
@@ -58,12 +58,13 @@ class FavRecipe extends Component {
             updateLabel: event.target.updateLabel.value,
             updateImage:event.target.updateImage.value,
             
-            // updateIngredients: this.props.array,
+            updateIngredients: event.target.updateIngredients.value,
+
+    
             userEmail: user.email,
         }
-
-        console.log('bbbbbb',this.props.array)
-        let update = await axios.put(`${this.state.server}/updateRecipe/${this.state.index}`, updateObject);
+        console.log('mnbvcxz', updateObject.updateIngredients)
+        let update = await axios.put(`${this.state.server}/updateRecipe/${this.state.index}`,updateObject);
         console.log(update);
         this.setState({
         favDataArray: update.data,
@@ -110,9 +111,10 @@ class FavRecipe extends Component {
                             <Card.Body>
                               <Card.Title>{item.label}</Card.Title>
                               <Card.Text>
-                                {item.ingredients.map((element, index) => {
+                                {/* {item.ingredients.map((element, index) => {
                                   return <li key={index}>{element.text}</li>;
-                                })}
+                                })} */}
+                                {item.ingredients}
                               </Card.Text>
                               <Button onClick={()=>this.showUpdateRecipeForm(index)} >Update</Button>
                               <Button onClick={ ()=>this.DeleteRecipe(index) }>Delete</Button>
