@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Modal, Button } from 'react-bootstrap'
 import LoginButton from './LoginButton'
 import "./Recipe.css";
+import "./LoginModal.css"
 export class LoginModal extends Component {
     render() {
         return (
@@ -13,7 +14,7 @@ export class LoginModal extends Component {
                         </Modal.Header>
 
                         <Modal.Body >
-                            <p>Please login to add recipes</p>
+                            <p className='ParaForm'>Please login to add recipes</p>
                         </Modal.Body>
 
                         <Modal.Footer  >
