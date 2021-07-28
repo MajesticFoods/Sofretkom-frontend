@@ -106,14 +106,14 @@ functionShow =(item)=>{
               <Form.Control className="searchi" type="text" placeholder="Search" name="search" />
 
               <Form.Select className='mealType' onChange={this.handleMealType} aria-label="Default select example">
-                <option>Choose your meal..</option>
+                <option className="one">Choose your meal..</option>
                 <option value="breakfast">Breakfast</option>
                 <option value="lunch">Lunch</option>
                 <option value="dinner">Dinner</option>
               </Form.Select>
 
               <Form.Select className='mealType' onChange={this.handleCuisineType} aria-label="Default select example">
-                <option>Choose your cuisine type..</option>
+                <option style={{textAlign:'center' }}>Choose your cuisine..</option>
                 <option value="american">American</option>
                 <option value="asian">Asian</option>
                 <option value="middle eastern">Middle Eastern</option>
@@ -121,10 +121,12 @@ functionShow =(item)=>{
               </Form.Select>
             </Form.Group>
             {/* <AnimatedButton color="danger"  textColor="white">Danger</AnimatedButton> */}
+            <div className='TheButton'>
             <Button variant="primary" type="submit" className="custom-btn btn-5">
               {" "}
               Submit
             </Button>
+            </div>
           </Form>
           {/* <Button onClick={this.getRecipes} variant="primary">Test</Button> */}
         </div>
