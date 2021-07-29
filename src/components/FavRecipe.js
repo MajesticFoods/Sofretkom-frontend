@@ -93,7 +93,7 @@ class FavRecipe extends Component {
       
          }
           // let RecipeData=await axios.delete(`http://localhost:3001/DeleteRecipe/${index}`)
-          let RecipeData=await axios.delete(`http://localhost:3001/DeleteRecipe/${id}`,{params:paramsobj})
+          let RecipeData=await axios.delete(`${process.env.REACT_APP_PORT}/DeleteRecipe/${id}`,{params:paramsobj})
           await this.setState({
            favDataArray:RecipeData.data
           })
