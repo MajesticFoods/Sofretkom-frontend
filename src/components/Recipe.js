@@ -57,7 +57,7 @@ class Recipe extends Component {
     await this.setState({
       userInput: event.target.search.value,
     });
-    let url = `http://localhost:3001/recipes?searchQuery=${this.state.userInput}&mealType=${this.state.mealType}&cuisineType=${this.state.cuisineType}`;
+    let url = `${process.env.REACT_APP_PORT}/recipes?searchQuery=${this.state.userInput}&mealType=${this.state.mealType}&cuisineType=${this.state.cuisineType}`;
     let response = await axios.get(url);
     this.setState({
       recipes: response.data,
