@@ -41,7 +41,7 @@ class FavRecipe extends Component {
     showUpdateRecipeForm=(index)=>{
       this.setState({
         showUpdate: true,
-        index:index,
+        index:this.state.favDataArray[index]._id,
         updateLabel:this.state.favDataArray[index].label,
         updateImage:this.state.favDataArray[index].image,
         updateIngredients:this.state.favDataArray[index].ingredients
@@ -55,6 +55,7 @@ class FavRecipe extends Component {
        
         const { user } = this.props.auth0;
         let updateObject = {
+           id:this.state.index,
             updateLabel: event.target.updateLabel.value,
             updateImage:event.target.updateImage.value,
             
